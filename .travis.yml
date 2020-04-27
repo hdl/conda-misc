@@ -1,0 +1,35 @@
+language: shell
+
+addons:
+  homebrew:
+    packages:
+    update: false
+stages:
+  - "Miscellaneous"
+
+jobs:
+  include:
+  # Miscellaneous
+  fast_finish: true
+
+before_install:
+ - source $TRAVIS_BUILD_DIR/.travis/common.sh
+ - bash $TRAVIS_BUILD_DIR/.travis/fixup-git.sh
+ - bash $TRAVIS_BUILD_DIR/.travis/download_sdk.sh
+ - source $TRAVIS_BUILD_DIR/.travis/common.sh
+
+install:
+ - ./.travis/install.sh
+
+script:
+ - bash $TRAVIS_BUILD_DIR/.travis/script.sh
+
+after_failure:
+ - bash $TRAVIS_BUILD_DIR/.travis/after_failure.sh
+
+after_success:
+ - bash $TRAVIS_BUILD_DIR/.travis/after_success.sh
+
+cache:
+  directories:
+   - $HOME/.conda/pkgs
