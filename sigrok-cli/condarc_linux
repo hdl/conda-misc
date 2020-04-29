@@ -1,0 +1,5 @@
+# litex-hub has to be the first channel due to the required
+# litex-hub::libusb package and 'channel_priority: strict'
+channels:
+  - litex-hub
+  - conda-forge
