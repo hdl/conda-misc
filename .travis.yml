@@ -20,6 +20,20 @@ jobs:
       osx_image: xcode8.3
       env:
       - PACKAGE=dtc
+    - stage: "Miscellaneous"
+      os: linux
+      dist: xenial
+      env:
+      - PACKAGE=wishbone-tool
+    - stage: "Miscellaneous"
+      os: osx
+      osx_image: xcode8.3
+      env:
+      - PACKAGE=wishbone-tool
+    - stage: "Miscellaneous"
+      os: windows
+      env:
+      - PACKAGE=wishbone-tool
   fast_finish: true
 
 before_install:
