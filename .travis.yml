@@ -34,6 +34,11 @@ jobs:
       os: windows
       env:
       - PACKAGE=wishbone-tool
+    - stage: "Miscellaneous"
+      os: linux
+      dist: xenial
+      env:
+      - PACKAGE=sigrok-cli
   fast_finish: true
 
 before_install:
