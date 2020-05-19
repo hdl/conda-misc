@@ -39,6 +39,20 @@ jobs:
       dist: xenial
       env:
       - PACKAGE=sigrok-cli
+    - stage: "Miscellaneous"
+      os: linux
+      dist: xenial
+      env:
+      - PACKAGE=renode
+    - stage: "Miscellaneous"
+      os: osx
+      osx_image: xcode8.3
+      env:
+      - PACKAGE=renode
+    - stage: "Miscellaneous"
+      os: windows
+      env:
+      - PACKAGE=renode
   fast_finish: true
 
 before_install:

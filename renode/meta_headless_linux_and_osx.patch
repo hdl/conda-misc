@@ -1,0 +1,31 @@
+--- meta.yaml
++++ meta.yaml
+@@ -1,5 +1,7 @@
+ package:
+-    name: renode
++    name: renode          [win]
++    # GtkSharp libraries can't be provided through Conda
++    name: renode-headless [not win]
+     version: {{GIT_DESCRIBE_TAG}}
+ 
+ source:
+@@ -27,19 +29,13 @@
+         - autoconf       [not win]
+         - libtool        [not win]
+         - mono           [not win]
+-        - gtk2           [not win]
+         - vc >=10        [win]
+     run:
+         - python 2.7.*   [not win]
+         - python         [win]
+         - glib           [not win]
+         - mono           [not win]
+-        - gtk2           [not win]
+         - pcre           [not win]
+-        - cairo          [not win]
+-        - pango          [not win]
+-        - atk            [not win]
+-        - fontconfig     [not win]
+         - robotframework
+         - netifaces
+         - requests
