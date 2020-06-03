@@ -1,0 +1,12 @@
+--- bld.bat
++++ bld.bat
+@@ -4,7 +4,7 @@ set PATH=C:\cygwin64\bin\;%PATH%
+ set PLATFORM=Any CPU
+ for /r %%i in (*.sh) do  CALL :convert_to_unix_newline %%i
+ 
+-call bash build.sh
++call bash build.sh --no-gui
+ 
+ REM Need to use call for all functions outside of script, otherwise label handling go crazy
+ call mkdir %LIBRARY_PREFIX%\renode\exec
+
