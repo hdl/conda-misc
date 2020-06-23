@@ -1,13 +1,13 @@
 diff --git a/tools/common.sh b/tools/common.sh
-index c9afba0..d16d118 100755
+index d016551..794a02b 100755
 --- a/tools/common.sh
 +++ b/tools/common.sh
-@@ -14,7 +14,7 @@ then
+@@ -15,7 +15,7 @@ then
      ON_OSX=true
      ON_LINUX=false
      CS_COMPILER=xbuild
 -    LAUNCHER="mono64"
 +    LAUNCHER="mono"
+     PYTHON_RUNNER="python2"
  else
      DETECTED_OS="windows"
-     ON_WINDOWS=true
