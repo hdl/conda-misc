@@ -40,6 +40,11 @@ jobs:
       env:
       - PACKAGE=sigrok-cli
     - stage: "Miscellaneous"
+      os: osx
+      osx_image: xcode8.3
+      env:
+      - PACKAGE=sigrok-cli
+    - stage: "Miscellaneous"
       os: linux
       dist: xenial
       env:
