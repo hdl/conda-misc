@@ -4,60 +4,81 @@ addons:
   homebrew:
     packages:
     update: false
+
 stages:
-  - "Miscellaneous"
+  - name: "No dependencies" # Doesn't depend on anything apart from upstream packages
+    if: type != cron
+  - name: "Main label upload" # Puts Anaconda packages to the main label
+    if: type = push AND branch = master
+  - name: "Cleanup" # Job for removing old Anaconda labels
+    if: type = cron
 
 jobs:
   include:
-  # Miscellaneous
-    - stage: "Miscellaneous"
+  # No dependencies
+    - stage: "No dependencies"
       os: linux
       dist: xenial
       env:
       - PACKAGE=dtc
-    - stage: "Miscellaneous"
+    - stage: "No dependencies"
       os: osx
       osx_image: xcode8.3
       env:
       - PACKAGE=dtc
-    - stage: "Miscellaneous"
+    - stage: "No dependencies"
       os: linux
       dist: xenial
       env:
       - PACKAGE=wishbone-tool
-    - stage: "Miscellaneous"
+    - stage: "No dependencies"
       os: osx
       osx_image: xcode8.3
       env:
       - PACKAGE=wishbone-tool
-    - stage: "Miscellaneous"
+    - stage: "No dependencies"
       os: windows
       env:
       - PACKAGE=wishbone-tool
-    - stage: "Miscellaneous"
+    - stage: "No dependencies"
       os: linux
       dist: xenial
       env:
       - PACKAGE=sigrok-cli
-    - stage: "Miscellaneous"
+    - stage: "No dependencies"
       os: osx
       osx_image: xcode8.3
       env:
       - PACKAGE=sigrok-cli
-    - stage: "Miscellaneous"
+    - stage: "No dependencies"
       os: linux
       dist: xenial
       env:
       - PACKAGE=renode
-    - stage: "Miscellaneous"
+    - stage: "No dependencies"
       os: osx
       osx_image: xcode8.3
       env:
       - PACKAGE=renode
-    - stage: "Miscellaneous"
+    - stage: "No dependencies"
       os: windows
       env:
       - PACKAGE=renode
+
+  # Move packages from the current label to main
+    - stage: "Main label upload"
+      os: linux
+      dist: xenial
+      script:
+        - bash $TRAVIS_BUILD_DIR/.travis/master-package.sh
+
+  # Remove old labels
+    - stage: "Cleanup"
+      os: linux
+      dist: xenial
+      script:
+        - bash $TRAVIS_BUILD_DIR/.travis/cleanup-anaconda.sh
+
   fast_finish: true
 
 before_install:
