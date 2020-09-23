@@ -8,6 +8,6 @@ index d016551..794a02b 100755
      CS_COMPILER=xbuild
 -    LAUNCHER="mono64"
 +    LAUNCHER="mono"
-     PYTHON_RUNNER="python2"
+     PYTHON_RUNNER="python3"
  else
      DETECTED_OS="windows"
