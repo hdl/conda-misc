@@ -2,8 +2,6 @@
 
 set -x
 
-cd "$PACKAGE"
-
 # Copy the recipe from the Renode's master
 git clone --depth 1 https://github.com/renode/renode.git
 mv renode/tools/packaging/conda/* .
@@ -31,4 +29,5 @@ patch-func bld.bat build_without_gui_win.patch
 rm meta_add_travis_patches.patch
 rm meta_headless.patch
 rm build_without_gui.patch
+rm build_without_gui_win.patch
 rm prescript..sh
