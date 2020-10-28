@@ -70,6 +70,15 @@ jobs:
       os: linux
       env:
       - PACKAGE=capnproto
+    - stage: "No dependencies"
+      os: linux
+      env:
+      - PACKAGE=zachjs-sv2v
+      addons:
+        apt:
+          update: true
+          packages:
+            - build-essential
 
     - stage: "Has first level dependencies"
       os: linux
