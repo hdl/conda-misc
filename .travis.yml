@@ -64,6 +64,10 @@ jobs:
       os: windows
       env:
       - PACKAGE=renode
+    - stage: "No dependencies"
+      os: linux
+      env:
+      - PACKAGE=capnproto-java
 
   # Move packages from the current label to main
     - stage: "Main label upload"
