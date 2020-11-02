@@ -5,10 +5,9 @@ package:
   version: {{ version }}
 
 source:
-  git_rev: master
-  git_url: https://github.com/capnproto/capnproto-java.git
-  patches:
-      - fix.patch
+  - git_rev: master
+    git_url: https://github.com/capnproto/capnproto-java.git
+  - path: fix.patch
 
 build:
   # number: 201803050325
