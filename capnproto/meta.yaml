@@ -1,0 +1,57 @@
+{% set version = "0.8.0" %}
+
+package:
+  name: capnproto
+  version: {{ version }}
+
+source:
+  fn: v{{ version }}.tar.gz
+  url: https://github.com/sandstorm-io/capnproto/archive/v{{ version }}.tar.gz
+  md5: 1601022b45a083e7f0f8803e50f7e06b
+  patches:
+      - cmake.patch
+
+build:
+  # number: 201803050325
+  number: {{ environ.get('DATE_NUM') }}
+  # string: 20180305_0325
+  string: {{ environ.get('DATE_STR') }}
+  script_env:
+    - CI
+    - TRAVIS
+
+requirements:
+  build:
+    - cmake
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+
+test:
+  commands:
+    # NOTE: There are no executables on Windows in Lite mode
+    - capnp --help  # [unix]
+    - capnpc --help  # [unix]
+    - capnpc-c++ --help  # [unix]
+    - capnpc-capnp --help  # [unix]
+
+    - test -d "$PREFIX/include/capnp"  # [unix]
+    - if not exist %LIBRARY_INC%\\capnp exit 1  # [win]
+
+    - test -f "$PREFIX/lib/libcapnp.a"  # [unix]
+    - test -f "$PREFIX/lib/libcapnpc.a"  # [unix]
+    - test -f "$PREFIX/lib/libcapnp-rpc.a"  # [unix]
+    - test -f "$PREFIX/lib/libkj.a"  # [unix]
+    - test -f "$PREFIX/lib/libkj-async.a"  # [unix]
+    - if not exist %LIBRARY_LIB%\\capnp.lib exit 1  # [win]
+    - if not exist %LIBRARY_LIB%\\kj.lib exit 1  # [win]
+
+about:
+  home: http://capnproto.org
+  license: MIT
+  summary: An insanely fast data interchange format and capability-based RPC system.
+
+extra:
+  recipe-maintainers:
+    - frol
+    - ihnorton
+    - Shelnutt2

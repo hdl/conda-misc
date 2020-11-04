@@ -8,6 +8,8 @@ addons:
 stages:
   - name: "No dependencies" # Doesn't depend on anything apart from upstream packages
     if: type != cron
+  - name: "Has first level dependencies" # Depends on a package in the "no dependencies" group
+    if: type != cron
   - name: "Main label upload" # Puts Anaconda packages to the main label
     if: type = push AND branch = master
   - name: "Cleanup" # Job for removing old Anaconda labels
@@ -64,6 +66,15 @@ jobs:
       os: windows
       env:
       - PACKAGE=renode
+    - stage: "No dependencies"
+      os: linux
+      env:
+      - PACKAGE=capnproto
+
+    - stage: "Has first level dependencies"
+      os: linux
+      env:
+      - PACKAGE=capnproto-java
 
   # Move packages from the current label to main
     - stage: "Main label upload"
@@ -80,6 +91,22 @@ jobs:
         - bash $TRAVIS_BUILD_DIR/.travis/cleanup-anaconda.sh
 
   fast_finish: true
+
+  allow_failures:
+    - stage: "No dependencies"
+      os: linux
+      dist: xenial
+      env:
+      - PACKAGE=renode
+    - stage: "No dependencies"
+      os: osx
+      osx_image: xcode8.3
+      env:
+      - PACKAGE=renode
+    - stage: "No dependencies"
+      os: windows
+      env:
+      - PACKAGE=renode
 
 before_install:
  - source $TRAVIS_BUILD_DIR/.travis/common.sh
