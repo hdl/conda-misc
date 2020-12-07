@@ -1,5 +1,0 @@
-# This file will be replaced by the renode's meta.yaml after running "prescript..sh"
-
-package:
-  name: meta_stub
-  version: "0.0"
