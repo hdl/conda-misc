@@ -1,61 +1,137 @@
 name: build-packages
 on: [push, pull_request]
+defaults:
+  run:
+    shell: bash
 jobs:
-  packages:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - {package: "dtc", os: "ubuntu-16.04", os-name: "linux"}
-          - {package: "dtc", os: "macos-latest", os-name: "osx"}
-          - {package: "wishbone-tool", os: "ubuntu-16.04", os-name: "linux"}
-          - {package: "wishbone-tool", os: "macos-latest", os-name: "osx"}
-          - {package: "wishbone-tool", os: "windows-latest", os-name: "windows"}
-          - {package: "sigrok-cli", os: "ubuntu-16.04", os-name: "linux"}
-          - {package: "sigrok-cli", os: "macos-latest", os-name: "osx"}
-          - {package: "renode", os: "ubuntu-16.04", os-name: "linux"}
-          - {package: "renode", os: "macos-latest", os-name: "osx"}
-          - {package: "renode", os: "windows-latest", os-name: "windows"}
-          - {package: "capnproto", os: "ubuntu-16.04", os-name: "linux"}
-          - {package: "zachjs-sv2v", os: "ubuntu-16.04", os-name: "linux"}
-          - {package: "capnproto-java", os: "ubuntu-16.04", os-name: "linux"}
-    defaults:
-      run:
-        shell: bash
+  dtc-linux:
+    runs-on: "ubuntu-16.04"
+    env:
+      PACKAGE: "dtc"
+      OS_NAME: "linux"
     steps:
-    - uses: actions/checkout@v2
-      with:
-        submodules: 'true'
-    - name: 'windows: add msys2 to PATH'
-      if: matrix.os-name == 'windows'
-      run: echo "C:\msys64" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
-      shell: powershell
-    - name: 'macos: install coreutils'
-      if: matrix.os-name == 'osx'
-      run: brew install coreutils
-    - name: build
-      env:
-        PACKAGE: ${{ matrix.package }}
-        OS_NAME: ${{ matrix.os-name }}
-      run: |
-        export PATH="$PATH:/c/ProgramData/Chocolatey/bin/"
-        export PATH="$PATH:/c/Program Files/Git/usr/bin/"
-        source .github/scripts/common.sh
-        bash .github/scripts/fixup-git.sh
-        bash .github/scripts/download_sdk.sh
-        source .github/scripts/common.sh
-        bash .github/scripts/install.sh
-        bash .github/scripts/script.sh
-    - name: on_success
-      env:
-        PACKAGE: ${{ matrix.package }}
-      if: success()
-      run: |
-        source .github/scripts/after_success.sh
-    - name: on_failure
-      env:
-        PACKAGE: ${{ matrix.package }}
-      if: failure()
-      run: |
-        source .github/scripts/after_failure.sh
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - uses: antmicro/litex-conda-ci@move-to-ghactions
+  dtc-osx:
+    runs-on: "macos-latest"
+    env:
+      PACKAGE: "dtc"
+      OS_NAME: "osx"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - uses: antmicro/litex-conda-ci@move-to-ghactions
+  wishbone-tool-linux:
+    runs-on: "ubuntu-16.04"
+    env:
+      PACKAGE: "wishbone-tool"
+      OS_NAME: "linux"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - uses: antmicro/litex-conda-ci@move-to-ghactions
+  wishbone-tool-osx:
+    runs-on: "macos-latest"
+    env:
+      PACKAGE: "wishbone-tool"
+      OS_NAME: "osx"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - uses: antmicro/litex-conda-ci@move-to-ghactions
+  wishbone-tool-windows:
+    runs-on: "windows-latest"
+    env:
+      PACKAGE: "wishbone-tool"
+      OS_NAME: "windows"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - uses: antmicro/litex-conda-ci@move-to-ghactions
+  sigrok-cli-linux:
+    runs-on: "ubuntu-16.04"
+    env:
+      PACKAGE: "sigrok-cli"
+      OS_NAME: "linux"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - uses: antmicro/litex-conda-ci@move-to-ghactions
+  sigrok-cli-osx:
+    runs-on: "macos-latest"
+    env:
+      PACKAGE: "sigrok-cli"
+      OS_NAME: "osx"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - uses: antmicro/litex-conda-ci@move-to-ghactions
+  renode-linux:
+    runs-on: "ubuntu-16.04"
+    env:
+      PACKAGE: "renode"
+      OS_NAME: "linux"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - uses: antmicro/litex-conda-ci@move-to-ghactions
+  renode-osx:
+    runs-on: "macos-latest"
+    env:
+      PACKAGE: "renode"
+      OS_NAME: "osx"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - uses: antmicro/litex-conda-ci@move-to-ghactions
+  renode-windows:
+    runs-on: "windows-latest"
+    env:
+      PACKAGE: "renode"
+      OS_NAME: "windows"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - uses: antmicro/litex-conda-ci@move-to-ghactions
+  capnproto-linux:
+    runs-on: "ubuntu-16.04"
+    env:
+      PACKAGE: "capnproto"
+      OS_NAME: "linux"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - uses: antmicro/litex-conda-ci@move-to-ghactions
+  zachjs-sv2v-linux:
+    runs-on: "ubuntu-16.04"
+    env:
+      PACKAGE: "zachjs-sv2v"
+      OS_NAME: "linux"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - uses: antmicro/litex-conda-ci@move-to-ghactions
+  capnproto-java-linux:
+    runs-on: "ubuntu-16.04"
+    needs: "capnproto-linux"
+    env:
+      PACKAGE: "capnproto-java"
+      OS_NAME: "linux"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - uses: antmicro/litex-conda-ci@move-to-ghactions
