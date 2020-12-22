@@ -139,7 +139,11 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - name: 'install'
+      - uses: actions/download-artifact@v2
+        with:
+          name: capnproto-linux
+          path: deps
+      - name: 'build'
         run: |
           if [ $SKIP ]; then
             exit 0;
@@ -151,12 +155,8 @@ jobs:
           bash .github/scripts/download_sdk.sh
           source .github/scripts/common.sh
           bash .github/scripts/install.sh
-      - uses: actions/download-artifact@v2
-        with:
-          name: capnproto-linux
-          path: workdir/conda-env/conda-bld/linux-64/
-      - name: 'build'
-        run: |
+          mkdir -p workdir/conda-env/conda-bld/linux-64/
+          cp deps/* workdir/conda-env/conda-bld/linux-64/
           source .github/scripts/common.sh
           conda index workdir/conda-env/conda-bld
           bash .github/scripts/script.sh
