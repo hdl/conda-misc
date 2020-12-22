@@ -84,6 +84,10 @@ jobs:
       os: linux
       env:
       - PACKAGE=capnproto-java
+    - stage: "No dependencies"
+      os: linux
+      env:
+      - PACKAGE=surelog
 
   # Move packages from the current label to main
     - stage: "Main label upload"
