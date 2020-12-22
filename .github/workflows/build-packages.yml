@@ -114,6 +114,10 @@ jobs:
         with:
           submodules: 'true'
       - uses: antmicro/litex-conda-ci@move-to-ghactions
+      - uses: actions/upload-artifact@v2
+        with:
+          name: capnproto-linux
+          path: conda-env/conda-bld/linux-64/*.tar.bz2
   zachjs-sv2v-linux:
     runs-on: "ubuntu-16.04"
     env:
@@ -134,4 +138,8 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
+      - uses: actions/download-artifact@v2
+        with:
+          name: capnproto-linux
+          path: conda-env/conda-bld/linux-64/
       - uses: antmicro/litex-conda-ci@move-to-ghactions
