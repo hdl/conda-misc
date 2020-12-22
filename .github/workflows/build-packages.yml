@@ -115,6 +115,8 @@ jobs:
         with:
           submodules: 'true'
       - uses: antmicro/litex-conda-ci@move-to-ghactions
+      - name: 'check'
+        run: ls workdir/conda-env
       - uses: actions/upload-artifact@v2
         with:
           name: capnproto-linux
@@ -143,4 +145,6 @@ jobs:
         with:
           name: capnproto-linux
           path: workdir/conda-env/conda-bld/linux-64/
+      - name: 'check'
+        run: ls workdir/conda-env
       - uses: antmicro/litex-conda-ci@move-to-ghactions
