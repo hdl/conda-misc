@@ -157,6 +157,8 @@ jobs:
           path: workdir/conda-env/conda-bld/linux-64/
       - name: 'build'
         run: |
+          source .github/scripts/common.sh
+          conda index workdir/conda-env/conda-bld
           bash .github/scripts/script.sh
           if [ $? -eq 0 ]; then
             source .github/scripts/after_success.sh
