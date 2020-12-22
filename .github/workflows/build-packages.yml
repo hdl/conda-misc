@@ -114,6 +114,10 @@ jobs:
         with:
           submodules: 'true'
       - uses: antmicro/litex-conda-ci@move-to-ghactions
+      - name: 'check'
+        run: |
+            pwd
+            find -name capnproto*.bz2
       - uses: actions/upload-artifact@v2
         with:
           name: capnproto-linux
