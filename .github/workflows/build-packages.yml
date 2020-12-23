@@ -1,15 +1,11 @@
 name: build-packages
 on: [push, pull_request]
-env:
-  LIN: "ubuntu-16.04"
-  OSX: "macos-latest"
-  WIN: "windows-latest"
 defaults:
   run:
     shell: bash
 jobs:
   dtc-linux:
-    runs-on: ${{ env.LIN }}
+    runs-on: "ubuntu-16.04"
     env:
       PACKAGE: "dtc"
       OS_NAME: "linux"
@@ -19,7 +15,7 @@ jobs:
           submodules: 'true'
       - uses: antmicro/litex-conda-ci@move-to-ghactions
   dtc-osx:
-    runs-on: ${{ env.OSX }}
+    runs-on: "macos-latest"
     env:
       PACKAGE: "dtc"
       OS_NAME: "osx"
@@ -29,7 +25,7 @@ jobs:
           submodules: 'true'
       - uses: antmicro/litex-conda-ci@move-to-ghactions
   wishbone-tool-linux:
-    runs-on: ${{ LIN }}
+    runs-on: "ubuntu-16.04"
     env:
       PACKAGE: "wishbone-tool"
       OS_NAME: "linux"
@@ -39,7 +35,7 @@ jobs:
           submodules: 'true'
       - uses: antmicro/litex-conda-ci@move-to-ghactions
   wishbone-tool-osx:
-    runs-on: ${{ OSX }}
+    runs-on: "macos-latest"
     env:
       PACKAGE: "wishbone-tool"
       OS_NAME: "osx"
@@ -49,7 +45,7 @@ jobs:
           submodules: 'true'
       - uses: antmicro/litex-conda-ci@move-to-ghactions
   wishbone-tool-windows:
-    runs-on: ${{ WIN }}
+    runs-on: "windows-latest"
     env:
       PACKAGE: "wishbone-tool"
       OS_NAME: "windows"
@@ -59,7 +55,7 @@ jobs:
           submodules: 'true'
       - uses: antmicro/litex-conda-ci@move-to-ghactions
   sigrok-cli-linux:
-    runs-on: ${{ LIN }}
+    runs-on: "ubuntu-16.04"
     env:
       PACKAGE: "sigrok-cli"
       OS_NAME: "linux"
@@ -69,7 +65,7 @@ jobs:
           submodules: 'true'
       - uses: antmicro/litex-conda-ci@move-to-ghactions
   sigrok-cli-osx:
-    runs-on: ${{ OSX }}
+    runs-on: "macos-latest"
     env:
       PACKAGE: "sigrok-cli"
       OS_NAME: "osx"
@@ -79,7 +75,7 @@ jobs:
           submodules: 'true'
       - uses: antmicro/litex-conda-ci@move-to-ghactions
   renode-linux:
-    runs-on: ${{ LIN }}
+    runs-on: "ubuntu-16.04"
     env:
       PACKAGE: "renode"
       OS_NAME: "linux"
@@ -89,7 +85,7 @@ jobs:
           submodules: 'true'
       - uses: antmicro/litex-conda-ci@move-to-ghactions
   renode-osx:
-    runs-on: ${{ OSX }}
+    runs-on: "macos-latest"
     env:
       PACKAGE: "renode"
       OS_NAME: "osx"
@@ -100,7 +96,7 @@ jobs:
       - run: brew install coreutils
       - uses: antmicro/litex-conda-ci@move-to-ghactions
   renode-windows:
-    runs-on: ${{ WIN }}
+    runs-on: "windows-latest"
     env:
       PACKAGE: "renode"
       OS_NAME: "windows"
@@ -110,7 +106,7 @@ jobs:
           submodules: 'true'
       - uses: antmicro/litex-conda-ci@move-to-ghactions
   capnproto-linux:
-    runs-on: ${{ LIN }}
+    runs-on: "ubuntu-16.04"
     env:
       PACKAGE: "capnproto"
       OS_NAME: "linux"
@@ -120,7 +116,7 @@ jobs:
           submodules: 'true'
       - uses: antmicro/litex-conda-ci@move-to-ghactions
   zachjs-sv2v-linux:
-    runs-on: ${{ LIN }}
+    runs-on: "ubuntu-16.04"
     env:
       PACKAGE: "zachjs-sv2v"
       OS_NAME: "linux"
@@ -130,7 +126,7 @@ jobs:
           submodules: 'true'
       - uses: antmicro/litex-conda-ci@move-to-ghactions
   capnproto-java-linux:
-    runs-on: ${{ LIN }}
+    runs-on: "ubuntu-16.04"
     needs: "capnproto-linux"
     env:
       PACKAGE: "capnproto-java"
