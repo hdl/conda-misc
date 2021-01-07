@@ -21,11 +21,10 @@ build:
 requirements:
   build:
     - {{ compiler('cxx') }}
-    - capnproto
     - pkg-config
+    - make
   host:
     - capnproto
-    - pkg-config
   run:
     - capnproto
 
