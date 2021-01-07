@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: antmicro/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@move-to-ghactions
   dtc-osx:
     runs-on: "macos-latest"
     env:
@@ -27,7 +27,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: antmicro/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@move-to-ghactions
   wishbone-tool-linux:
     runs-on: "ubuntu-16.04"
     env:
@@ -37,7 +37,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: antmicro/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@move-to-ghactions
   wishbone-tool-osx:
     runs-on: "macos-latest"
     env:
@@ -47,7 +47,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: antmicro/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@move-to-ghactions
   wishbone-tool-windows:
     runs-on: "windows-latest"
     env:
@@ -57,7 +57,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: antmicro/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@move-to-ghactions
   sigrok-cli-linux:
     runs-on: "ubuntu-16.04"
     env:
@@ -67,7 +67,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: antmicro/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@move-to-ghactions
   sigrok-cli-osx:
     runs-on: "macos-latest"
     env:
@@ -77,7 +77,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: antmicro/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@move-to-ghactions
   renode-linux:
     runs-on: "ubuntu-16.04"
     env:
@@ -87,7 +87,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: antmicro/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@move-to-ghactions
   renode-osx:
     runs-on: "macos-latest"
     env:
@@ -98,7 +98,7 @@ jobs:
         with:
           submodules: 'true'
       - run: brew install coreutils
-      - uses: antmicro/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@move-to-ghactions
   renode-windows:
     runs-on: "windows-latest"
     env:
@@ -108,7 +108,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: antmicro/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@move-to-ghactions
   capnproto-linux:
     runs-on: "ubuntu-16.04"
     env:
@@ -118,7 +118,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: antmicro/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@move-to-ghactions
   zachjs-sv2v-linux:
     runs-on: "ubuntu-16.04"
     env:
@@ -128,7 +128,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: antmicro/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@move-to-ghactions
   capnproto-java-linux:
     runs-on: "ubuntu-16.04"
     needs: "capnproto-linux"
@@ -139,7 +139,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: antmicro/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@move-to-ghactions
   master-package:
     runs-on: "ubuntu-16.04"
     env:
