@@ -8,6 +8,8 @@ defaults:
   run:
     shell: bash
 jobs:
+
+  #1
   dtc-linux:
     runs-on: "ubuntu-16.04"
     env:
@@ -18,6 +20,8 @@ jobs:
         with:
           submodules: 'true'
       - uses: litex-hub/litex-conda-ci@move-to-ghactions
+
+  #2
   dtc-osx:
     runs-on: "macos-latest"
     env:
@@ -28,6 +32,8 @@ jobs:
         with:
           submodules: 'true'
       - uses: litex-hub/litex-conda-ci@move-to-ghactions
+
+  #3
   wishbone-tool-linux:
     runs-on: "ubuntu-16.04"
     env:
@@ -38,6 +44,8 @@ jobs:
         with:
           submodules: 'true'
       - uses: litex-hub/litex-conda-ci@move-to-ghactions
+
+  #4
   wishbone-tool-osx:
     runs-on: "macos-latest"
     env:
@@ -48,6 +56,8 @@ jobs:
         with:
           submodules: 'true'
       - uses: litex-hub/litex-conda-ci@move-to-ghactions
+
+  #5
   wishbone-tool-windows:
     runs-on: "windows-latest"
     env:
@@ -58,6 +68,8 @@ jobs:
         with:
           submodules: 'true'
       - uses: litex-hub/litex-conda-ci@move-to-ghactions
+
+  #6
   sigrok-cli-linux:
     runs-on: "ubuntu-16.04"
     env:
@@ -68,6 +80,8 @@ jobs:
         with:
           submodules: 'true'
       - uses: litex-hub/litex-conda-ci@move-to-ghactions
+
+  #7
   sigrok-cli-osx:
     runs-on: "macos-latest"
     env:
@@ -78,6 +92,8 @@ jobs:
         with:
           submodules: 'true'
       - uses: litex-hub/litex-conda-ci@move-to-ghactions
+
+  #8
   renode-linux:
     runs-on: "ubuntu-16.04"
     env:
@@ -88,6 +104,8 @@ jobs:
         with:
           submodules: 'true'
       - uses: litex-hub/litex-conda-ci@move-to-ghactions
+
+  #9
   renode-osx:
     runs-on: "macos-latest"
     env:
@@ -99,6 +117,8 @@ jobs:
           submodules: 'true'
       - run: brew install coreutils
       - uses: litex-hub/litex-conda-ci@move-to-ghactions
+
+  #10
   renode-windows:
     runs-on: "windows-latest"
     env:
@@ -109,6 +129,8 @@ jobs:
         with:
           submodules: 'true'
       - uses: litex-hub/litex-conda-ci@move-to-ghactions
+
+  #11
   capnproto-linux:
     runs-on: "ubuntu-16.04"
     env:
@@ -119,6 +141,8 @@ jobs:
         with:
           submodules: 'true'
       - uses: litex-hub/litex-conda-ci@move-to-ghactions
+
+  #12
   zachjs-sv2v-linux:
     runs-on: "ubuntu-16.04"
     env:
@@ -129,6 +153,8 @@ jobs:
         with:
           submodules: 'true'
       - uses: litex-hub/litex-conda-ci@move-to-ghactions
+
+  #13
   capnproto-java-linux:
     runs-on: "ubuntu-16.04"
     needs: "capnproto-linux"
@@ -140,6 +166,7 @@ jobs:
         with:
           submodules: 'true'
       - uses: litex-hub/litex-conda-ci@move-to-ghactions
+
   master-package:
     runs-on: "ubuntu-16.04"
     env:
