@@ -19,7 +19,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@master
 
   #2
   dtc-osx:
@@ -31,7 +31,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@master
 
   #3
   wishbone-tool-linux:
@@ -43,7 +43,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@master
 
   #4
   wishbone-tool-osx:
@@ -55,7 +55,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@master
 
   #5
   wishbone-tool-windows:
@@ -67,7 +67,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@master
 
   #6
   sigrok-cli-linux:
@@ -79,7 +79,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@master
 
   #7
   sigrok-cli-osx:
@@ -91,7 +91,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@master
 
   #8
   renode-linux:
@@ -103,7 +103,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@master
 
   #9
   renode-osx:
@@ -116,7 +116,7 @@ jobs:
         with:
           submodules: 'true'
       - run: brew install coreutils
-      - uses: litex-hub/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@master
 
   #10
   renode-windows:
@@ -128,7 +128,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@master
 
   #11
   capnproto-linux:
@@ -140,7 +140,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@master
 
   #12
   zachjs-sv2v-linux:
@@ -152,7 +152,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@master
 
   #13
   capnproto-java-linux:
@@ -165,7 +165,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           submodules: 'true'
-      - uses: litex-hub/litex-conda-ci@move-to-ghactions
+      - uses: litex-hub/litex-conda-ci@master
 
   master-package:
     runs-on: "ubuntu-16.04"
