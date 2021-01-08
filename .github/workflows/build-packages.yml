@@ -3,7 +3,7 @@ on: [push, pull_request]
 env:
   ANACONDA_TOKEN: ${{ secrets.ANACONDA_TOKEN }}
   ANACONDA_USER: ${{ secrets.ANACONDA_USER }}
-  NUM_OF_JOBS: 13
+  NUM_OF_JOBS: 14
 defaults:
   run:
     shell: bash
@@ -160,6 +160,18 @@ jobs:
     needs: "capnproto-linux"
     env:
       PACKAGE: "capnproto-java"
+      OS_NAME: "linux"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true'
+      - uses: litex-hub/litex-conda-ci@master
+
+  #14
+  netlistsvg-linux:
+    runs-on: "ubuntu-16.04"
+    env:
+      PACKAGE: "netlistsvg"
       OS_NAME: "linux"
     steps:
       - uses: actions/checkout@v2
