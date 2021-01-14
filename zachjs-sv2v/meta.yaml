@@ -18,6 +18,13 @@ build:
 
 requirements:
   build:
+# There seems to be no way to make linker use `libgmp` from
+# the Conda's `gmp` package to build Cabal and zachjs-sv2v
+# dependencies (ld is called through stack -> cabal -> ghc).
+#
+# Therefore linker and `libgmp` have to be installed in the
+# OS (Conda `ld` doesn't work with OS-installed `libgmp`).
+    - make
     - stack<2.5.1
 
 test:

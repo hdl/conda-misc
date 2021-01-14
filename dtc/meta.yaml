@@ -22,8 +22,9 @@ requirements:
   build:
     - {{ compiler('c') }}  [linux]
     - clang                [osx]
-    - flex
     - bison
+    - flex
+    - make
     - pkg-config
   host:
     # Python bindings
