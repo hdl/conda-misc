@@ -1,0 +1,11 @@
+--- meta.yaml
++++ meta.yaml
+@@ -16,6 +16,8 @@
+     missing_dso_whitelist:
+         # This library comes with .NET
+         - "$SYSROOT/System32/mscoree.dll" [win]
++    number: {{ environ.get('DATE_NUM') }}
++    string: {{ environ.get('DATE_STR') }}
+ 
+ requirements:
+     build:
