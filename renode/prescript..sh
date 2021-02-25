@@ -25,7 +25,11 @@ patch-func meta.yaml meta_headless.patch
 patch-func build.sh build_without_gui.patch
 patch-func bld.bat build_without_gui_win.patch
 
+# Add build number and build string
+patch-func meta.yaml meta_add_build_string.patch
+
 # Clean the recipe
+rm meta_add_build_string.patch
 rm meta_add_travis_patches.patch
 rm meta_headless.patch
 rm build_without_gui.patch
