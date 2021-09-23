@@ -26,7 +26,7 @@ jobs:
 
   #1
   dtc-linux:
-    runs-on: "ubuntu-16.04"
+    runs-on: "ubuntu-20.04"
     env:
       PACKAGE: "dtc"
       OS_NAME: "linux"
@@ -50,7 +50,7 @@ jobs:
 
   #3
   wishbone-tool-linux:
-    runs-on: "ubuntu-16.04"
+    runs-on: "ubuntu-20.04"
     env:
       PACKAGE: "wishbone-tool"
       OS_NAME: "linux"
@@ -86,7 +86,7 @@ jobs:
 
   #6
   sigrok-cli-linux:
-    runs-on: "ubuntu-16.04"
+    runs-on: "ubuntu-20.04"
     env:
       PACKAGE: "sigrok-cli"
       OS_NAME: "linux"
@@ -110,7 +110,7 @@ jobs:
 
   #8
   renode-linux:
-    runs-on: "ubuntu-16.04"
+    runs-on: "ubuntu-20.04"
     env:
       PACKAGE: "renode"
       OS_NAME: "linux"
@@ -147,7 +147,7 @@ jobs:
 
   #11
   capnproto-linux:
-    runs-on: "ubuntu-16.04"
+    runs-on: "ubuntu-20.04"
     env:
       PACKAGE: "capnproto"
       OS_NAME: "linux"
@@ -159,7 +159,7 @@ jobs:
 
   #12
   zachjs-sv2v-linux:
-    runs-on: "ubuntu-16.04"
+    runs-on: "ubuntu-20.04"
     env:
       PACKAGE: "zachjs-sv2v"
       OS_NAME: "linux"
@@ -171,7 +171,7 @@ jobs:
 
   #13
   capnproto-java-linux:
-    runs-on: "ubuntu-16.04"
+    runs-on: "ubuntu-20.04"
     needs: "capnproto-linux"
     env:
       PACKAGE: "capnproto-java"
@@ -184,7 +184,7 @@ jobs:
 
   #14
   netlistsvg-linux:
-    runs-on: "ubuntu-16.04"
+    runs-on: "ubuntu-20.04"
     env:
       PACKAGE: "netlistsvg"
       OS_NAME: "linux"
@@ -195,7 +195,7 @@ jobs:
       - uses: hdl/conda-ci@master
 
   master-package:
-    runs-on: "ubuntu-16.04"
+    runs-on: "ubuntu-20.04"
     env:
       OS_NAME: "linux"
     steps:
