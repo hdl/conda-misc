@@ -18,7 +18,8 @@ build:
 
 requirements:
   host:
-    - nodejs
+    # For nodejs v16.6.1, test fails with `Cannot find module 'elkjs'`.
+    - nodejs <16.6
   run:
     - nodejs
 
