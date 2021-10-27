@@ -90,6 +90,7 @@ jobs:
     env:
       PACKAGE: "sigrok-cli"
       OS_NAME: "linux"
+      SKIP: "true"  # See https://github.com/hdl/conda-misc/issues/29
     steps:
       - uses: actions/checkout@v2
         with:
@@ -102,6 +103,7 @@ jobs:
     env:
       PACKAGE: "sigrok-cli"
       OS_NAME: "osx"
+      SKIP: "true"  # See https://github.com/hdl/conda-misc/issues/29
     steps:
       - uses: actions/checkout@v2
         with:
