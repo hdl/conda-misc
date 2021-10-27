@@ -18,7 +18,7 @@ on:
 env:
   ANACONDA_TOKEN: ${{ secrets.ANACONDA_TOKEN }}
   ANACONDA_USER: ${{ secrets.ANACONDA_USER }}
-  NUM_OF_JOBS: 14
+  NUM_OF_JOBS: 13
 defaults:
   run:
     shell: bash
@@ -158,18 +158,6 @@ jobs:
       - uses: hdl/conda-ci@master
 
   #12
-  zachjs-sv2v-linux:
-    runs-on: "ubuntu-20.04"
-    env:
-      PACKAGE: "zachjs-sv2v"
-      OS_NAME: "linux"
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          submodules: 'true'
-      - uses: hdl/conda-ci@master
-
-  #13
   capnproto-java-linux:
     runs-on: "ubuntu-20.04"
     needs: "capnproto-linux"
@@ -182,7 +170,7 @@ jobs:
           submodules: 'true'
       - uses: hdl/conda-ci@master
 
-  #14
+  #13
   netlistsvg-linux:
     runs-on: "ubuntu-20.04"
     env:
