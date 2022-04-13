@@ -23,11 +23,9 @@ patch-func meta.yaml meta_add_travis_patches.patch
 # Build headless Renode on Linux and macOS (there's no Conda package with GtkSharp)
 patch-func meta.yaml meta_headless.patch
 patch-func build.sh build_without_gui.patch
-patch-func bld.bat build_without_gui_win.patch
 
 # Clean the recipe
 rm meta_add_travis_patches.patch
 rm meta_headless.patch
 rm build_without_gui.patch
-rm build_without_gui_win.patch
 rm prescript..sh
