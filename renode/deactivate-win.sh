@@ -1,2 +1,3 @@
-# Conda uses '*_[de]activate.sh' on Windows + Bash.
-export PATH="${PATH/$CONDA_PREFIX\/Library\/renode\/exec:/}"
+# For MSYS / git bash on Windows (Cygwin isn't supported properly by Conda).
+RENODE_BIN_DIR="$(cygpath.exe $CONDA_PREFIX)/Library/renode/exec"
+export PATH=$(python -c "print(\"$PATH\".replace(\"$RENODE_BIN_DIR\" + ':',''))")
