@@ -24,8 +24,12 @@ patch-func meta.yaml meta_add_travis_patches.patch
 patch-func meta.yaml meta_headless.patch
 patch-func build.sh build_without_gui.patch
 
+patch-func bld.bat bld_copy_activate_sh.patch
+
 # Clean the recipe
 rm meta_add_travis_patches.patch
 rm meta_headless.patch
 rm build_without_gui.patch
+rm bld_copy_activate_sh.patch
+
 rm prescript..sh
