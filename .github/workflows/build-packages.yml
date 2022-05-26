@@ -32,7 +32,7 @@ jobs:
       OS_NAME: "linux"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #2
   dtc-osx:
@@ -42,7 +42,7 @@ jobs:
       OS_NAME: "osx"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #3
   wishbone-tool-linux:
@@ -52,7 +52,7 @@ jobs:
       OS_NAME: "linux"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #4
   wishbone-tool-osx:
@@ -62,7 +62,7 @@ jobs:
       OS_NAME: "osx"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #5
   wishbone-tool-windows:
@@ -72,7 +72,7 @@ jobs:
       OS_NAME: "windows"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #6
   sigrok-cli-linux:
@@ -83,7 +83,7 @@ jobs:
       SKIP: "true"  # See https://github.com/hdl/conda-misc/issues/29
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #7
   sigrok-cli-osx:
@@ -94,7 +94,7 @@ jobs:
       SKIP: "true"  # See https://github.com/hdl/conda-misc/issues/29
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #8
   renode-linux:
@@ -104,7 +104,7 @@ jobs:
       OS_NAME: "linux"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #9
   renode-osx:
@@ -115,7 +115,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: brew install coreutils
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #10
   renode-windows:
@@ -125,7 +125,7 @@ jobs:
       OS_NAME: "windows"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #11
   capnproto-linux:
@@ -135,7 +135,7 @@ jobs:
       OS_NAME: "linux"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #12
   capnproto-java-linux:
@@ -146,7 +146,7 @@ jobs:
       OS_NAME: "linux"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
   #13
   netlistsvg-linux:
@@ -156,19 +156,19 @@ jobs:
       OS_NAME: "linux"
     steps:
       - uses: actions/checkout@v2
-      - uses: hdl/conda-ci@master
+      - uses: hdl/conda-eda/ci@master
 
 
   master-package:
     runs-on: "ubuntu-20.04"
     env:
       OS_NAME: "linux"
-      CI_SCRIPTS_REL_PATH: "conda-ci"
+      CI_SCRIPTS_REL_PATH: "conda-eda"
     steps:
       - uses: actions/checkout@v2
       - uses: actions/checkout@v2
         with:
-          repository: hdl/conda-ci
+          repository: hdl/conda-eda
           ref: master
           path: ${{ env.CI_SCRIPTS_REL_PATH }}
       - uses: actions/setup-python@v1
@@ -177,6 +177,6 @@ jobs:
           packages: urllib3
       - run: |
           # Required internally by the scripts to locate other scripts.
-          export CI_SCRIPTS_PATH="$GITHUB_WORKSPACE/$CI_SCRIPTS_REL_PATH"
+          export CI_SCRIPTS_PATH="$GITHUB_WORKSPACE/$CI_SCRIPTS_REL_PATH/ci"
           bash $CI_SCRIPTS_PATH/install.sh
           python $CI_SCRIPTS_PATH/wait-for-statuses.py
