@@ -20,7 +20,7 @@ jobs:
       PACKAGE: "dtc"
       OS_NAME: "linux"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: hdl/conda-eda/ci@master
 
   #2
@@ -30,7 +30,7 @@ jobs:
       PACKAGE: "dtc"
       OS_NAME: "osx"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: hdl/conda-eda/ci@master
 
   #3
@@ -40,7 +40,7 @@ jobs:
       PACKAGE: "wishbone-tool"
       OS_NAME: "linux"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: hdl/conda-eda/ci@master
 
   #4
@@ -50,7 +50,7 @@ jobs:
       PACKAGE: "wishbone-tool"
       OS_NAME: "osx"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: hdl/conda-eda/ci@master
 
   #5
@@ -60,7 +60,7 @@ jobs:
       PACKAGE: "wishbone-tool"
       OS_NAME: "windows"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: hdl/conda-eda/ci@master
 
   #6
@@ -71,7 +71,7 @@ jobs:
       OS_NAME: "linux"
       SKIP: "true"  # See https://github.com/hdl/conda-misc/issues/29
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: hdl/conda-eda/ci@master
 
   #7
@@ -82,7 +82,7 @@ jobs:
       OS_NAME: "osx"
       SKIP: "true"  # See https://github.com/hdl/conda-misc/issues/29
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: hdl/conda-eda/ci@master
 
   #8
@@ -92,7 +92,7 @@ jobs:
       PACKAGE: "renode"
       OS_NAME: "linux"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: hdl/conda-eda/ci@master
 
   #9
@@ -102,7 +102,7 @@ jobs:
       PACKAGE: "renode"
       OS_NAME: "osx"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - run: brew install coreutils
       - uses: hdl/conda-eda/ci@master
 
@@ -113,7 +113,7 @@ jobs:
       PACKAGE: "renode"
       OS_NAME: "windows"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: hdl/conda-eda/ci@master
 
   #11
@@ -123,7 +123,7 @@ jobs:
       PACKAGE: "capnproto"
       OS_NAME: "linux"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: hdl/conda-eda/ci@master
 
   #12
@@ -134,7 +134,7 @@ jobs:
       PACKAGE: "capnproto-java"
       OS_NAME: "linux"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: hdl/conda-eda/ci@master
 
   #13
@@ -144,5 +144,5 @@ jobs:
       PACKAGE: "netlistsvg"
       OS_NAME: "linux"
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: hdl/conda-eda/ci@master
