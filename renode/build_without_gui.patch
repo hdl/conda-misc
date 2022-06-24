@@ -1,8 +1,8 @@
 --- build.sh
 +++ build.sh
-@@ -5,45 +5,9 @@
- if [[ "$(uname)" == 'Linux' ]]; then
-     install -D /usr/bin/realpath $BUILD_PREFIX/bin/realpath
+@@ -6,47 +6,11 @@
+     _os_name=linux
+ 
      install -D /bin/sed $BUILD_PREFIX/bin/sed
 -
 -    # Install gtk-sharp2
@@ -27,7 +27,9 @@
 -    install -D /usr/lib/x86_64-linux-gnu/gtk-2.0/modules/libatk-bridge.so $PREFIX/lib/libatk-bridge.so
 -
 -    sed -i 's/\/usr\/lib\/cli\/.*-sharp-2.0\///g' $PREFIX/opt/renode/bin/*.dll.config
--else
+ else
+     _os_name=macos
+-
 -    cp /Library/Frameworks/Mono.framework/Libraries/libatksharpglue-2* $PREFIX/lib/
 -    cp /Library/Frameworks/Mono.framework/Libraries/libgtksharpglue-2* $PREFIX/lib/
 -    cp /Library/Frameworks/Mono.framework/Libraries/libgdksharpglue-2* $PREFIX/lib/
