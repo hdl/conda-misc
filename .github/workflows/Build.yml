@@ -1,6 +1,7 @@
 name: Build packages
 
 on:
+  push:
   workflow_call:
     secrets:
       ANACONDA_TOKEN:
@@ -17,78 +18,6 @@ defaults:
     shell: bash
 
 jobs:
-
-  #1
-  dtc-linux:
-    runs-on: "ubuntu-20.04"
-    env:
-      PACKAGE: "dtc"
-      OS_NAME: "linux"
-    steps:
-      - uses: actions/checkout@v3
-      - uses: hdl/conda-eda/ci@master
-
-  #2
-  dtc-osx:
-    runs-on: "macos-latest"
-    env:
-      PACKAGE: "dtc"
-      OS_NAME: "osx"
-    steps:
-      - uses: actions/checkout@v3
-      - uses: hdl/conda-eda/ci@master
-
-  #3
-  wishbone-tool-linux:
-    runs-on: "ubuntu-20.04"
-    env:
-      PACKAGE: "wishbone-tool"
-      OS_NAME: "linux"
-    steps:
-      - uses: actions/checkout@v3
-      - uses: hdl/conda-eda/ci@master
-
-  #4
-  wishbone-tool-osx:
-    runs-on: "macos-latest"
-    env:
-      PACKAGE: "wishbone-tool"
-      OS_NAME: "osx"
-    steps:
-      - uses: actions/checkout@v3
-      - uses: hdl/conda-eda/ci@master
-
-  #5
-  wishbone-tool-windows:
-    runs-on: "windows-latest"
-    env:
-      PACKAGE: "wishbone-tool"
-      OS_NAME: "windows"
-    steps:
-      - uses: actions/checkout@v3
-      - uses: hdl/conda-eda/ci@master
-
-  #6
-  sigrok-cli-linux:
-    runs-on: "ubuntu-20.04"
-    env:
-      PACKAGE: "sigrok-cli"
-      OS_NAME: "linux"
-      SKIP: "true"  # See https://github.com/hdl/conda-misc/issues/29
-    steps:
-      - uses: actions/checkout@v3
-      - uses: hdl/conda-eda/ci@master
-
-  #7
-  sigrok-cli-osx:
-    runs-on: "macos-latest"
-    env:
-      PACKAGE: "sigrok-cli"
-      OS_NAME: "osx"
-      SKIP: "true"  # See https://github.com/hdl/conda-misc/issues/29
-    steps:
-      - uses: actions/checkout@v3
-      - uses: hdl/conda-eda/ci@master
 
   #8
   renode-linux:
@@ -117,37 +46,6 @@ jobs:
     env:
       PACKAGE: "renode"
       OS_NAME: "windows"
-    steps:
-      - uses: actions/checkout@v3
-      - uses: hdl/conda-eda/ci@master
-
-  #11
-  capnproto-linux:
-    runs-on: "ubuntu-20.04"
-    env:
-      PACKAGE: "capnproto"
-      OS_NAME: "linux"
-    steps:
-      - uses: actions/checkout@v3
-      - uses: hdl/conda-eda/ci@master
-
-  #12
-  capnproto-java-linux:
-    runs-on: "ubuntu-20.04"
-    needs: "capnproto-linux"
-    env:
-      PACKAGE: "capnproto-java"
-      OS_NAME: "linux"
-    steps:
-      - uses: actions/checkout@v3
-      - uses: hdl/conda-eda/ci@master
-
-  #13
-  netlistsvg-linux:
-    runs-on: "ubuntu-20.04"
-    env:
-      PACKAGE: "netlistsvg"
-      OS_NAME: "linux"
     steps:
       - uses: actions/checkout@v3
       - uses: hdl/conda-eda/ci@master
